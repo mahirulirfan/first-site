@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime & Movie Watchlist</title>
+</head>
+<body>
+    <h1>My Watchlist</h1>
+    
+    <form id="animeForm">
+        <label for="animeName">Anime Name:</label>
+        <input type="text" id="animeName" required>
+        <button type="submit">Add to Watchlist</button>
+    </form>
+
+    <form id="movieForm">
+        <label for="movieName">Movie Name:</label>
+        <input type="text" id="movieName" required>
+        <button type="submit">Add to Watchlist</button>
+    </form>
+
+    <h2>Anime Watchlist</h2>
+    <ul id="animeList"></ul>
+
+    <h2>Movie Watchlist</h2>
+    <ul id="movieList"></ul>
+
+    <script>
+        document.getElementById('animeForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const animeName = document.getElementById('animeName').value;
+            const animeList = document.getElementById('animeList');
+            const listItem = document.createElement('li');
+            listItem.textContent = animeName;
+            animeList.appendChild(listItem);
+            document.getElementById('animeName').value = '';
+        });
+
+        document.getElementById('movieForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const movieName = document.getElementById('movieName').value;
+            const movieList = document.getElementById('movieList');
+            const listItem = document.createElement('li');
+            listItem.textContent = movieName;
+            movieList.appendChild(listItem);
+            document.getElementById('movieName').value = '';
+        });
+    </script>
+</body>
+</html>
